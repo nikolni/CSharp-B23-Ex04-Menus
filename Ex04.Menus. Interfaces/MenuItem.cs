@@ -7,17 +7,13 @@ namespace Ex04.Menus.Interfaces
     public interface IMenuItemNotifier
     {
         void ActivateItem();
-        //void NotifySelectedItemListener();
     }
 
 
     public class MenuItem : IMenuItemNotifier
     {
-       // SelectedItemListener selectedItemListener = new SelectedItemListener();
         public string m_Title; 
         public List<MenuItem> m_SubItems; 
-
-        //public bool IsActionItem { get; set; }
         public IMenuItemNotifier m_Notifier; 
 
         //propetties
@@ -62,14 +58,12 @@ namespace Ex04.Menus.Interfaces
         {
             m_Title = i_Title;
             m_SubItems = new List<MenuItem>();
-            //IsActionItem = false;
         }
 
         public MenuItem(string i_Title, IMenuItemNotifier i_Notifier)
         {
             m_Title = i_Title;
             m_SubItems = new List<MenuItem>();
-            //IsActionItem = true;
             m_Notifier = i_Notifier;
         }
 
@@ -78,7 +72,6 @@ namespace Ex04.Menus.Interfaces
             m_Notifier.ActivateItem();
         }
     }
-
 
     // Notifier implementations for the action items
     public class TimeShowNotifier : IMenuItemNotifier
